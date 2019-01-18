@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue TEplate - Directives</title>
+</head>
+<body>
+    <div id="app">
+        <a v-if="flag">do it vue.js</a>
+        <ul>
+            <li v-for="system in systems">{{ system }}</li>
+        </ul>
+        <p v-show="flag">do it Vue.js</p>
+        <h5 v-bind:id="uid">vue 입문서</h5>
+        <button v-on:click="popupAlert(10)">경고 창 버튼</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            data: {
+                flag: true,
+                systems: ['android', 'ios', 'window'],
+                uid: 10
+            },
+            methods: {
+                popupAlert: function(num, event) {
+                    console.log(event);
+                    return alert('경고+'+ num +' 창 표시');
+                }
+            }
+        }).$mount('#app');
+    </script>
+</body>
+</html>
